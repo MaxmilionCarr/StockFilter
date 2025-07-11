@@ -9,4 +9,6 @@ class Settings:
     DEBUG = os.getenv("DEBUG", "true").lower() == "true"
     TRACKED_TICKERS = ["AAPL", "TSLA", "GOOGL", "NVDA"]
 
+import os
+print("USING DB FILE:", os.path.abspath("stock_alert.db"))
 settings = Settings()

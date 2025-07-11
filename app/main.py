@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from app.routers import prices, news, alerts
 import logging
+from app.models.stock import Stock
+from app.models.price_snapshot import PriceSnapshot
+
 
 app = FastAPI()
 

@@ -4,7 +4,7 @@ from app.config import settings
 from datetime import datetime
 from sqlalchemy import insert
 from app.database import SessionLocal
-from app.models.price_snapshot import PriceSnapShot
+from app.models.price_snapshot import PriceSnapshot
 
 async def fetch_price_data():
     tickers = settings.TRACKED_TICKERS
@@ -27,7 +27,7 @@ async def store_prices(prices: dict):
             if price is None:
                 continue
             
-            snapshot = PriceSnapShot(
+            snapshot = PriceSnapshot(
                 id=str(uuid.uuid4()),
                 ticker=ticker,
                 timestamp=datetime.now(),

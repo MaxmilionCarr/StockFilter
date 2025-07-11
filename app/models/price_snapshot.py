@@ -2,7 +2,7 @@ from sqlalchemy import Column, String, Float, DateTime, ForeignKey
 from datetime import datetime
 from app.database import Base
 
-class PriceSnapShot(Base):
+class PriceSnapshot(Base):
     __tablename__ = "price_snapshots"
 
     id = Column(String, primary_key=True)

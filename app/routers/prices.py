@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from sqlalchemy import select, desc
-from app.models.price_snapshot import PriceSnapShot
+from app.models.price_snapshot import PriceSnapshot
 from app.database import SessionLocal
 from app.config import settings
 from app.services.prices import fetch_price_data, store_prices
@@ -28,9 +28,9 @@ async def get_latest_prices():
         prices = {}
         for ticker in settings.TRACKED_TICKERS:
             stmt = (
-                select(PriceSnapShot)
-                .where(PriceSnapShot.ticker == ticker)
-                .order_by(desc(PriceSnapShot.timestamp))
+                select(PriceSnapshot)
+                .where(PriceSnapshot.ticker == ticker)
+                .order_by(desc(PriceSnapshot.timestamp))
                 .limit(1)
             )
             result = await session.execute(stmt)
