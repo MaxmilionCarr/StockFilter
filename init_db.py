@@ -1,6 +1,6 @@
 import asyncio
 from app.database import engine, Base
-from app.models import stock
+from app.models import price_snapshot, stock
 
 async def init_db():
     async with engine.begin() as conn:
